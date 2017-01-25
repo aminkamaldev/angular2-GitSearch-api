@@ -4,10 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { ProfileComponent } from './profile/profile.component';
+import { SearchRepoComponent } from './search-repo/search-repo.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProfileComponent,
+    SearchRepoComponent
   ],
   imports: [
     BrowserModule,
