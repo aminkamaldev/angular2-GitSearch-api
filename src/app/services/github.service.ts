@@ -34,5 +34,10 @@ export class GithubService {
       ('https://api.github.com/search/repositories?q=' + this.keyword + '+language:' + this.language + '&sort=stars&order=desc')
       .map(res => res.json());
   }
+
+  updateRepoName(reponame: string, lang: string) {
+    this.keyword = reponame;
+    this.language = lang;
+  }
   // TODO 02-ajouter la pagination dans le resultat de la requete avec un odre alphabetique
 }

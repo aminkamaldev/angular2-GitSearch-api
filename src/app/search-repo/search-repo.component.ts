@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {GithubService} from "../services/github.service";
-
+import {GithubService} from '../services/github.service';
 
 @Component({
   selector: 'app-search-repo',
@@ -9,15 +8,19 @@ import {GithubService} from "../services/github.service";
 })
 export class SearchRepoComponent implements OnInit {
   repos: any[];
+  reponame: string;
+  language: string;
 
   constructor(private _githubService: GithubService) {
 
   }
 
-  searchRepos(){
-    this._githubService.searchRepos().subscribe(repos => {this.repos = repos; });
+  searchRepos() {
+    this._githubService.updateRepoName(this.reponame, this.language);
+
+    this._githubService.searchRepos()
+      .subscribe(repos => { this.repos = repos; });
   }
   ngOnInit() {
   }
-
 }
