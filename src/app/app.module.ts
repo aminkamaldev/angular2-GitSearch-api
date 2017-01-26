@@ -6,12 +6,14 @@ import { RouteRoutingModule } from './route/route-routing.module';
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SearchRepoComponent } from './search-repo/search-repo.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
-    SearchRepoComponent
+    SearchRepoComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,6 @@
     </form>
   </div>
 </div>
-
 <div *ngIf="user">
   <div class="panel panel-info">
     <div class="panel-heading">
@@ -20,7 +19,6 @@
           <a class="btn btn-default btn-block" target="_blank" href="{{user.html_url}}">View Profile</a>
         </div>
         <div class="col-md-7">
-
           <span class="label label-default">{{user.public_repos}} Public Repository</span>
           <span class="label label-primary">{{user.public_gists}} Public Gists</span>
           <span class="label label-success">{{user.followers}} Followers</span>
@@ -63,4 +61,3 @@
     </div>
   </div>
 </div>
-<app-search-repo></app-search-repo>

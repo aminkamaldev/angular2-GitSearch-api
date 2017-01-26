@@ -1,3 +1,42 @@
-<p>
-  search-repo works!
-</p>
+<div class="row">
+  <h2>Search Repositories</h2>
+  <div class="col-md-12">
+    <form class="well">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Enter Github repositories name ..." [(ngModel)]="reponame" name="reponame" (keyup)="searchRepos()">
+        <!-- TODO Ajouter une liste de language pour dynamiser la requete-->
+      </div>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="repos">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">Results Repositories {{repos.total_count}} </h3>
+    </div>
+    <div class="panel-body">
+      <div *ngFor="let item of repos.items">
+        <div class="row vdivide">
+          <div class="col-md-6">
+            <h4>{{item.full_name}}</h4>
+            <img src="{{item.owner.avatar_url}}" class="img-rounded" alt="Cinque Terre" width="100" height="100" />
+            <br>
+            <a class="btn btn-default btn-xs" target="_blank" href="{{item.owner.html_url}}">View Profile</a>
+            <a class="btn btn-default btn-xs" target="_blank" href="{{item.html_url}}">View Repoitory</a>
+          </div>
+          <div class="col-md-6">
+            <span class="label label-default">{{item.watchers_count}} Watchers</span>
+            <span class="label label-primary">{{item.forks}} Forks</span>
+            <br>
+            <h5>{{item.description}}</h5>
+            <br>
+            <h5>created <small>{{item.created_at}}</small></h5>
+            <h5>last upload <small> {{item.updated_at}}</small></h5>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>

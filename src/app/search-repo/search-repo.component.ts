@@ -7,19 +7,20 @@ import {GithubService} from '../services/github.service';
   styleUrls: ['./search-repo.component.css']
 })
 export class SearchRepoComponent implements OnInit {
-  repos: any[];
+  repos: any;
   reponame: string;
-  language: string;
+  language = '';
+  items: any[];
 
-  constructor(private _githubService: GithubService) {
-
-  }
+  constructor(private _githubService: GithubService) { }
 
   searchRepos() {
     this._githubService.updateRepoName(this.reponame, this.language);
 
     this._githubService.searchRepos()
-      .subscribe(repos => { this.repos = repos; });
+      .subscribe(repos => {
+        this.repos = repos;
+      });
   }
   ngOnInit() {
   }
